@@ -3,6 +3,7 @@ package com.anderson.hexagonal.adapters.out.client
 import com.anderson.hexagonal.adapters.out.client.response.AddressResponse
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 
 @FeignClient(
     name = "FindAddressByZipCodeClient",
@@ -11,5 +12,5 @@ import org.springframework.web.bind.annotation.GetMapping
 interface FindAddressByZipCodeClient {
 
     @GetMapping("/{zipCode}")
-    fun find(zipCode: String): AddressResponse
+    fun find(@PathVariable zipCode: String): AddressResponse
 }
